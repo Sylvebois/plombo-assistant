@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="icon" version="1.1" viewBox="0 0 106 106">
+  <style>
+    #sanitaire {
+      animation: 16s showAndHide infinite linear;
+      animation-delay: 0s;
+      opacity:0;
+    }
+
+    #cuisine {
+      animation: 16s showAndHide infinite linear;
+      animation-delay: 4s;
+      opacity:0;
+    }
+
+    #chauffage {
+      animation: 16s showAndHide infinite linear;
+      animation-delay: 8s;
+      opacity:0;
+    }
+
+    #energie {
+      animation: 16s showAndHide infinite linear;
+      animation-delay: 12s;
+      opacity:0;
+    }
+
+    @keyframes showAndHide {
+      0% {
+        opacity: 0.0
+      }
+
+      4% {
+        opacity: 1.0
+      }
+
+      33.33% {
+        opacity: 1.0
+      }
+
+      37.33% {
+        opacity: 0.0
+      }
+
+      100% {
+        opacity: 0.0
+      }
+    }
+  </style>
+  <!-- Sanitaire -->
+  <g transform="translate(-51.175806,-98.709937)" style="opacity:0" id="sanitaire">
+    <g id="g18" transform="matrix(0.35277777,0,0,-0.35277777,-0.86455905,300.23071)">
+      <path d="M 147.516,571.24 H 448.814 V 269.933 H 147.516 Z" style="fill:#00ace4;" id="path20" />
+      <path d="m 291.793,381.351 h 78.473 v 78.476 h -78.473 z" style="fill:#ffffff;" id="path22" />
+      <g id="g24" transform="translate(373.2461,269.9336)">
+        <path d="m 0,0 -3.582,102.822 -4.9,-0.133 L -4.906,0 Z" style="fill:#ffffff;" id="path26" />
+      </g>
+      <path d="m 358.436,372.718 h -15.7 V 269.934 h 15.7 z" style="fill:#ffffff;" id="path28" />
+      <path d="m 335.613,372.718 h -4.902 V 269.934 h 4.902 z" style="fill:#ffffff;" id="path30" />
+      <path d="M 320.122,372.718 H 304.426 V 269.934 h 15.696 z" style="fill:#ffffff;" id="path32" />
+      <g id="g34" transform="translate(293.9453,269.9336)">
+        <path d="M 0,0 4.955,102.643 0.052,102.822 -4.908,0 Z" style="fill:#ffffff;" id="path36" />
+      </g>
+    </g>
+  </g>
+  <!-- Cuisine -->
+  <g transform="translate(-51.175632,-90.394808)" style="opacity:0" id="cuisine">
+    <g id="g18" transform="matrix(0.35277777,0,0,-0.35277777,-0.72256381,306.04927)">
+      <path d="M 147.113,611.304 H 448.412 V 309.999 H 147.113 Z" style="fill:#f49d00;" id="path20" />
+      <path d="m 291.613,418.877 h 78.475 v 78.478 h -78.475 z" style="fill:#ffffff;" id="path22" />
+      <path d="m 317.119,509.504 h 27.465 v 27.468 h -27.465 z" style="fill:#ffffff;" id="path24" />
+      <path d="m 317.119,379.261 h 27.465 v 27.465 h -27.465 z" style="fill:#ffffff;" id="path26" />
+      <path d="m 382.24,444.382 h 27.465 v 27.465 H 382.24 Z" style="fill:#ffffff;" id="path28" />
+      <path d="m 251.998,444.382 h 27.465 v 27.465 h -27.465 z" style="fill:#ffffff;" id="path30" />
+      <g id="g32" transform="translate(246.3652,309.999)">
+        <path d="m 0,0 h -17.996 v 81.219 h -45.109 v 220.086 h 17.994 V 99.213 H 0 Z" style="fill:#ffffff;"
+          id="path34" />
+      </g>
+    </g>
+  </g>
+  <!-- Chauffage -->
+  <g transform="translate(-54.198736,-91.150008)" style="opacity:0" id="chauffage">
+    <g id="g131" transform="matrix(0.35277777,0,0,-0.35277777,2.4557624,306.80447)">
+      <path d="M 447.976,309.996 H 146.673 v 301.308 h 301.303 z" style="fill:#e30051;" id="path133" />
+      <path d="m 211.446,309.996 h 17.715 v 301.308 h -17.715 z" style="fill:#ffffff;" id="path135" />
+      <path d="m 164.202,309.996 h 17.715 v 301.308 h -17.715 z" style="fill:#ffffff;" id="path137" />
+      <g id="g139" transform="translate(291.0283,499.8877)">
+        <path d="M 0,0 V -30.377 H -14.625 V 111.416 H -32.34 v -301.309 h 17.715 v 141.8 H 0 V -78.48 H 78.474 V 0 Z"
+          style="fill:#ffffff;" id="path141" />
+      </g>
+    </g>
+  </g>
+  <!-- Energie -->
+  <g transform="translate(-45.127803,-83.591246)" style="opacity:0" id="energie">
+    <g id="g64" transform="matrix(0.35277777,0,0,-0.35277777,-5.93431,295.71793)">
+      <path d="m 144.743,601.304 h 301.3 V 299.999 h -301.3 z" style="fill:#c2cc00;" id="path66" />
+      <g id="g68">
+        <g id="g70" clip-path="url(#clipPath74)">
+          <g id="g76" transform="translate(154.8428,511.6816)">
+            <path d="m 0,0 13.047,-164.302 17.936,1.424 L 17.742,3.87 C 12.057,2.009 6.121,0.698 0,0"
+              style="fill:#ffffff;" id="path78" />
+          </g>
+          <g id="g80" transform="translate(199.8564,530.0645)">
+            <path d="m 0,0 c -4.732,-3.683 -9.842,-6.901 -15.261,-9.594 l 57.263,-80.122 14.641,10.463 z"
+              style="fill:#ffffff;" id="path82" />
+          </g>
+          <g id="g84" transform="translate(233.6045,587.0908)">
+            <path d="m 0,0 c -0.96,-6.064 -2.525,-11.928 -4.629,-17.525 l 180.198,-25.055 2.479,17.823 z"
+              style="fill:#ffffff;" id="path86" />
+          </g>
+          <g id="g88" transform="translate(281.9629,495.8193)">
+            <path d="m 0,0 h 32.35 l -91.718,60.283 c -3.029,-5.22 -6.569,-10.11 -10.548,-14.599 L 0,-0.271 Z"
+              style="fill:#ffffff;" id="path90" />
+          </g>
+          <g id="g92" transform="translate(374.5352,456.2373)">
+            <path d="m 0,0 v -21.533 l 71.508,-47 V -47 Z" style="fill:#ffffff;" id="path94" />
+          </g>
+          <path d="M 367.484,410.291 H 289.01 v 78.478 h 78.474 z" style="fill:#ffffff;" id="path96" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
