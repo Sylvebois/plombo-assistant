@@ -1,0 +1,26 @@
+.textZone {
+  display: inline-block;
+  height: 45vh;
+  width: 80vw;
+  border-radius: 45px;
+}
+
+.rs-text {
+  font-size: 45px;
+  font-weight: bold;
+  color: red;
+}
+
+.textZone button {
+  display: block;
+  margin: 10px;
+  font-size: 30px;
+  background-color: darkgrey;
+  border: 1px solid darkgrey;
+  border-radius: 5px;
+}
+
+.textZone button:hover {
+  background-color: lightgray;
+  border: 1px solid lightgray;
+}
