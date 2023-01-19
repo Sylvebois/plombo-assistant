@@ -10,23 +10,18 @@ class PlomboSpeech extends Component {
     this.playText = React.createRef();
   }
 
-  componentDidMount() {
-    this.playText.current.play()
-  }
-
-  componentDidUpdate() {
-    this.playText.current.play()
-  }
+  componentDidMount() { this.playText.current.play(); }
+  componentDidUpdate() { this.playText.current.play(); }
 
   render() {
     return (
       <Speech
-        text={PLOMBOSPEECH[this.props.page]}
-        textAsButton={true} 
+        text = { PLOMBOSPEECH[this.props.page] }
+        textAsButton = { true }
         //pitch={2}
-        lang="Fr-BE"
-        displayTextAsButton={true}
-        ref={this.playText}
+        lang="fr-BE"
+        displayTextAsButton = { true }
+        ref = { this.playText }
       />
     )
   }

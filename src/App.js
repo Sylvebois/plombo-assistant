@@ -4,23 +4,24 @@ import PlomboImg from './Components/PlomboZone/PlomboImg';
 import PlomboSpeech from './Components/TextZone/PlomboSpeech';
 import PlomboText from './Components/TextZone/PlomboText';
 import Dictaphone from './Components/TextZone/Dictaphone';
+import ListenButton from './Components/TextZone/ListenButton';
 
 import './App.css';
 
 class App extends Component {
-  state = { page: 'home' }
+  state = { page: 'home', listening: false }
 
-  handleButtonClick = navTo => {
-    this.setState({ page: navTo });
-  }
+  handleButtonClick = navTo => this.setState({ page: navTo });
 
   render() {
     const page = this.state.page;
-    let borderStyle = '20px solid rgb(' + Math.random()*255 + ',' + Math.random()*255 + ',' + Math.random()*255 + ')';
+    const listen = this.state.listening;
+    let borderStyle = '10px solid rgb(' + Math.random()*255 + ',' + Math.random()*255 + ',' + Math.random()*255 + ')';
 
     return (
       <div className="App">
-        {page.startsWith('lookingFor')? <Map page={page} /> : <PlomboImg page={page} />}
+        { page.startsWith('lookingFor') ? <Map page={page} /> : <PlomboImg page={page} />}
+        <ListenButton page={page} listen={listen} />
         <div className="textZone" style={{ border: borderStyle}}>
           <PlomboSpeech page={page} />
           <div className="choiceButton">

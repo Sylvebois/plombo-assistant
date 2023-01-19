@@ -28,7 +28,7 @@ const Dictaphone = ({ page, onClick }) => {
 
   return (
     <div>
-      <p style={{display:"none"}}>Transcript : {transcript}</p>
+      <p style={{display:"block"}}>Transcript : {transcript}</p>
     </div>
   )
 }

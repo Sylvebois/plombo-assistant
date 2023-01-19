@@ -8,3 +8,23 @@ img {
   height: 45vh;
   display: inline-block;
 }
+
+.listenButton {
+  height: 30vh;
+  width: 30vh;
+  display: inline-block;
+  border-radius: 60px;
+  margin: 1vh;
+  border: 1px solid red;
+  background-color: red;
+}
+
+.listenButton:hover {
+  border: 1px solid green;
+  background-color: pink;
+}
+
+.listening {
+  border: 1px solid green;
+  background-color: green;
+}
