@@ -9,8 +9,11 @@ const Dictaphone = ({ page, onClick }) => {
     return {
       command: elem.text.replaceAll(/\.+|\?+|,+|!+/gi, '').trim(),
       callback: ({ resetTranscript }) => {
+        if (elem.id.startsWith('call') && elem.id !== 'call05') { 
+          console.log('calling ...'); 
+        }
         resetTranscript();
-        onClick(elem.navTo)
+        onClick(elem.navTo);
       }
     }
   })

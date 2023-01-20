@@ -1,7 +1,8 @@
 export const PLOMBOSPEECH = {
   home: "Bonjour, je suis Plombo. Comment puis-je vous aider ?",
+  callColleagues: "Quel département dois-je appeler ?",
   lookingFor: "De quel genre d'information avez-vous besoin ?",
-  lookingForSpareParts: "Pour les pièces détachées, veuillez vous rendre au comptoir en suivant le chemin indiqué ci-dessus.",  
+  lookingForSpareParts: "Pour les pièces détachées, veuillez vous rendre au comptoir en suivant le chemin indiqué ci-dessus.",
   lookingForSanitary: "Le département sanitaire se trouve juste ici, comme indiqué ci-dessus.",
   lookingForKitchen: "Le département cuisine se trouve au deuxième étage, comme indiqué ci-dessus.",
   lookingForHeating: "Le département chauffage se situe à l'étage en dessous, comme indiqué sur cette carte.",
@@ -12,8 +13,16 @@ export const PLOMBOSPEECH = {
 export const USERANSWERS = {
   home: [
     { id: 'home01', text: "Je cherche quelque chose ...", navTo: 'lookingFor' },
-    { id: 'home02', text: "Qui es-tu ?", navTo: 'whoAreYou' },
-    { id: 'home03', text: "Je m'ennuie ...", navTo: 'bored' }
+    { id: 'home02', text: "Il faudrait appeler quelqu'un ...", navTo: 'callColleagues' },
+    { id: 'home03', text: "Qui es-tu ?", navTo: 'whoAreYou' },
+    { id: 'home04', text: "Je m'ennuie ...", navTo: 'bored' }
+  ],
+  callColleagues: [
+    { id: 'call01', text: 'Le comptoir.', navTo: 'home' },
+    { id: 'call02', text: 'Les sanitaires.', navTo: 'home' },
+    { id: 'call03', text: 'Les cuisines.', navTo: 'home' },
+    { id: 'call04', text: 'Le chauffage.', navTo: 'home' },
+    { id: 'call05', text: 'Personne pour l\'instant.', navTo: 'home' }
   ],
   lookingFor: [
     { id: 'lookingFor01', text: "J'ai besoin d'une pièce détachée", navTo: 'lookingForSpareParts' },
