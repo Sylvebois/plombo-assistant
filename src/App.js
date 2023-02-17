@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { useState } from 'react';
 import Map from './Components/PlomboZone/Map';
 import PlomboImg from './Components/PlomboZone/PlomboImg';
 import PlomboSpeech from './Components/TextZone/PlomboSpeech';
@@ -8,30 +8,30 @@ import ListenButton from './Components/TextZone/ListenButton';
 
 import './App.css';
 
-class App extends Component {
-  state = { page: 'home', listening: false }
+const App = () => {
+  const [page, setPage] = useState('home');
+  const [listen, setListen] = useState(false);
 
-  handleButtonClick = navTo => this.setState({ page: navTo });
+  const navClick = navTo => setPage(navTo);
+  const listenClick = () => setListen(!listen);
 
-  render() {
-    const page = this.state.page;
-    const listen = this.state.listening;
-    let borderStyle = '10px solid rgb(' + Math.random()*255 + ',' + Math.random()*255 + ',' + Math.random()*255 + ')';
+  let borderStyle = '10px solid rgb(' + Math.random() * 255 + ',' + Math.random() * 255 + ',' + Math.random() * 255 + ')';
 
-    return (
-      <div className="App">
-        { page.startsWith('lookingFor') ? <Map page={page} /> : <PlomboImg page={page} />}
-        <ListenButton page={page} listen={listen} />
-        <div className="textZone" style={{ border: borderStyle}}>
-          <PlomboSpeech page={page} />
-          <div className="choiceButton">
-            <PlomboText page={page} onClick={this.handleButtonClick} />
-          </div>
+  return (
+    <div className="App">
+      {
+        page.startsWith('lookingFor') ? <Map page={page} /> : <PlomboImg page={page} />
+      }
+      <ListenButton listenState={listen} handleClick={listenClick} />
+      <div className="textZone" style={{ border: borderStyle }}>
+        <PlomboSpeech page={page} />
+        <div className="choiceButton">
+          <PlomboText page={page} onClick={navClick} />
         </div>
-        <Dictaphone page={page} onClick={this.handleButtonClick} />
       </div>
-    );
-  }
+      <Dictaphone page={page} onClick={navClick} />
+    </div>
+  );
 }
 
 export default App;
