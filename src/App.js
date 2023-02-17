@@ -26,7 +26,7 @@ const App = () => {
       <div className="textZone" style={{ border: borderStyle }}>
         <PlomboSpeech page={page} />
         <div className="choiceButton">
-          <PlomboText page={page} onClick={navClick} />
+          <PlomboText page={page} handleClick={navClick} />
         </div>
       </div>
       <Dictaphone page={page} onClick={navClick} />
