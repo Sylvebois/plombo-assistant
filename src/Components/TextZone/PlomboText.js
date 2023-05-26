@@ -5,10 +5,10 @@ import { USERANSWERS } from './text';
 
 import './TextZone.css';
 
-const PlomboText = ({ page, onClick }) => {
+const PlomboText = ({ page, handleClick }) => {
   return (
     <div className="answerText">
-      { USERANSWERS[page].map(({ id, text, navTo }) => (<button key={id} onClick={() => onClick(navTo)}>{text}</button>))}
+      { USERANSWERS[page].map(({ id, text, navTo }) => (<button key={id} onClick={() => handleClick(navTo)}>{text}</button>))}
     </div>
   );
 }
