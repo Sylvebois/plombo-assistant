@@ -1,34 +1,34 @@
-import React, { Component } from 'react';
-import Speech from 'react-speech';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import { TextToSpeech, useTts } from 'tts-react'
 
-import { PLOMBOSPEECH } from './text';
+import { PLOMBOSPEECH } from './text'
 
-class PlomboSpeech extends Component {
-  constructor(props) {
-    super(props);
-    this.playText = React.createRef();
+const Speak = ({ children }) => {
+  console.log(children)
+  return (
+    <>{
+      useTts({
+        children,
+        autoPlay: true,
+        lang: 'fr-BE'
+      }).ttsChildren
+    }
+    </>)
+}
+const PlomboSpeech = ({ page }) => {
+  const readAgain = (e) => {
+    console.log(e)
   }
 
-  componentDidMount() { this.playText.current.play(); }
-  componentDidUpdate() { this.playText.current.play(); }
-
-  render() {
-    return (
-      <Speech
-        text = { PLOMBOSPEECH[this.props.page] }
-        textAsButton = { true }
-        //pitch={2}
-        lang="fr-BE"
-        displayTextAsButton = { true }
-        ref = { this.playText }
-      />
-    )
-  }
+  return (
+    <Speak onClick={readAgain}>
+      <p>{PLOMBOSPEECH[page]}</p>
+    </Speak>
+  )
 }
 
 PlomboSpeech.propTypes = {
   page: PropTypes.string.isRequired
 }
 
-export default PlomboSpeech;
+export default PlomboSpeech

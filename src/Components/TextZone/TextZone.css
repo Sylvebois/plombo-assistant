@@ -24,3 +24,12 @@
   background-color: lightgray;
   border: 1px solid lightgray;
 }
+
+.textZone .tts-react aside {
+  margin: 10px !important;
+}
+
+.textZone .tts-react button svg {
+  max-width: 35px;
+  max-height: 35px;
+}
