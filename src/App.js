@@ -1,5 +1,43 @@
 import { useState } from 'react';
-import Map from './Components/PlomboZone/Map';
+import { TextToSpeech, useTts } from 'tts-react'
+
+import { PLOMBOSPEECH, USERANSWERS } from './text'
+
+const Buttons = ({ currPage, handleClick }) =>
+(<>
+  {USERANSWERS[currPage].map(({ id, text, navTo }) =>
+  (<button key={id} onClick={() => handleClick(navTo)}>
+    {text}
+  </button>))}
+</>)
+
+const App = () => {
+  const [currPage, setCurrPage] = useState('home')
+  const [currSpeech, setCurrSpeech] = useState(PLOMBOSPEECH[currPage])
+  const handleClick = (dest) => {
+    setCurrPage(dest)
+    setCurrSpeech(PLOMBOSPEECH[dest])
+  }
+
+  return (
+    <>
+      <h1>Test</h1>
+      <TextToSpeech
+        markTextAsSpoken
+        align="horizontal"
+        size="small"
+        position="leftCenter"
+        lang="fr-BE"
+        autoPlay={true}
+      >
+        <p> {currSpeech} </p>
+      </TextToSpeech>
+      <Buttons currPage={currPage} handleClick={handleClick} />
+    </>
+  )
+}
+
+/*import Map from './Components/PlomboZone/Map';
 import PlomboImg from './Components/PlomboZone/PlomboImg';
 import PlomboSpeech from './Components/TextZone/PlomboSpeech';
 import PlomboText from './Components/TextZone/PlomboText';
@@ -32,6 +70,6 @@ const App = () => {
       <Dictaphone page={page} onClick={navClick} />
     </div>
   );
-}
+}*/
 
 export default App;
