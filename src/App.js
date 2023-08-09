@@ -1,75 +1,45 @@
 import { useState } from 'react';
-import { TextToSpeech, useTts } from 'tts-react'
 
-import { PLOMBOSPEECH, USERANSWERS } from './text'
+import MapImg from './Components/MapImg'
+import PlomboImg from './Components/PlomboImg'
+import Talker from './Components/Talker'
+import Dictaphone from './Components/Dictaphone'
+import ChoiceButtons from './Components/ChoiceButtons'
 
-const Buttons = ({ currPage, handleClick }) =>
-(<>
-  {USERANSWERS[currPage].map(({ id, text, navTo }) =>
-  (<button key={id} onClick={() => handleClick(navTo)}>
-    {text}
-  </button>))}
-</>)
+import { PLOMBOSPEECH } from './text'
 
 const App = () => {
   const [currPage, setCurrPage] = useState('home')
   const [currSpeech, setCurrSpeech] = useState(PLOMBOSPEECH[currPage])
-  const handleClick = (dest) => {
+
+  const navClick = (dest) => {
     setCurrPage(dest)
     setCurrSpeech(PLOMBOSPEECH[dest])
   }
 
+  const divStyle = {
+    margin: '0',
+    display: 'inline-block',
+    verticalAlign: 'middle',
+  }
+
   return (
     <>
-      <h1>Test</h1>
-      <TextToSpeech
-        markTextAsSpoken
-        align="horizontal"
-        size="small"
-        position="leftCenter"
-        lang="fr-BE"
-        autoPlay={true}
-      >
-        <p> {currSpeech} </p>
-      </TextToSpeech>
-      <Buttons currPage={currPage} handleClick={handleClick} />
+      {
+        currPage.startsWith('lookingFor') ?
+          <MapImg currPage={currPage} /> :
+          null
+      }
+      <PlomboImg />
+      <Talker currSpeech={currSpeech} />
+      <div style={divStyle}>
+        <Dictaphone currPage={currPage} voiceClick={navClick} />
+      </div>
+      <div style={divStyle}>
+        <ChoiceButtons currPage={currPage} handleClick={navClick} />
+      </div>
     </>
   )
 }
-
-/*import Map from './Components/PlomboZone/Map';
-import PlomboImg from './Components/PlomboZone/PlomboImg';
-import PlomboSpeech from './Components/TextZone/PlomboSpeech';
-import PlomboText from './Components/TextZone/PlomboText';
-import Dictaphone from './Components/TextZone/Dictaphone';
-import ListenButton from './Components/TextZone/ListenButton';
-
-import './App.css';
-
-const App = () => {
-  const [page, setPage] = useState('home');
-  const [listen, setListen] = useState(false);
-
-  const navClick = navTo => setPage(navTo);
-  const listenClick = () => setListen(!listen);
-
-  let borderStyle = '10px solid rgb(' + Math.random() * 255 + ',' + Math.random() * 255 + ',' + Math.random() * 255 + ')';
-
-  return (
-    <div className="App">
-      {
-        page.startsWith('lookingFor') ? <Map page={page} /> : <PlomboImg page={page} />
-      }
-      <ListenButton listenState={listen} handleClick={listenClick} />
-      <div className="textZone" style={{ border: borderStyle }}>
-        <PlomboSpeech page={page} />
-        <div className="choiceButton">
-          <PlomboText page={page} handleClick={navClick} />
-        </div>
-      </div>
-      <Dictaphone page={page} onClick={navClick} />
-    </div>
-  );
-}*/
 
 export default App;

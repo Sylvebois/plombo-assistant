@@ -1,15 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+//import './PlomboZone.css';
 
-import './PlomboZone.css';
+const PlomboImg = () => {
+  const style = {
+    maxHeight: '45vh',
+    maxWidth: '45vw',
+    display: 'inline-block',
+    verticalAlign:'middle'
+  }
 
-const PlomboImg = (props) => {
   return (
     <svg
       viewBox="0 0 542.849 528.408"
       height={1997.131}
       width={2051.711}
-      {...props}
+      style= {style}
     >
       <path
         d="M152.75 65.6l-8.127-11.244c22.354-20.091 46.106-36.79 70.209-52.633l30.521 51.783-6.33 3.968-23.624 9.922-5.197 2.363-21.262 16.347-3.401 1.984-14.08 6.615c-6.046-9.86-11.297-20.383-18.71-29.104z"
@@ -772,10 +776,6 @@ const PlomboImg = (props) => {
       />
     </svg>
   )
-}
-
-PlomboImg.propTypes = {
-  page: PropTypes.string.isRequired
 }
 
 export default PlomboImg;
