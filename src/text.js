@@ -18,10 +18,10 @@ export const USERANSWERS = {
     { id: 'home04', text: "Je m'ennuie ...", navTo: 'bored' }
   ],
   callColleagues: [
-    { id: 'call01', text: 'Le comptoir.', navTo: 'home' },
-    { id: 'call02', text: 'Les sanitaires.', navTo: 'home' },
-    { id: 'call03', text: 'Les cuisines.', navTo: 'home' },
-    { id: 'call04', text: 'Le chauffage.', navTo: 'home' },
+    { id: 'call01', text: 'Le comptoir.', navTo: 'phone220' },
+    { id: 'call02', text: 'Les sanitaires.', navTo: 'phone230' },
+    { id: 'call03', text: 'Les cuisines.', navTo: 'phone250' },
+    { id: 'call04', text: 'Le chauffage.', navTo: 'phone240' },
     { id: 'call05', text: 'Personne pour l\'instant.', navTo: 'home' }
   ],
   lookingFor: [

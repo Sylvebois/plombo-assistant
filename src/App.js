@@ -1,10 +1,12 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-import MapImg from './Components/MapImg'
-import PlomboImg from './Components/PlomboImg'
-import Talker from './Components/Talker'
-import Dictaphone from './Components/Dictaphone'
-import ChoiceButtons from './Components/ChoiceButtons'
+import MapImg from './components/MapImg'
+import PlomboImg from './components/PlomboImg'
+import Talker from './components/Talker'
+import Dictaphone from './components/Dictaphone'
+import ChoiceButtons from './components/ChoiceButtons'
+
+import sipService from './services/sip'
 
 import { PLOMBOSPEECH } from './text'
 
@@ -13,8 +15,14 @@ const App = () => {
   const [currSpeech, setCurrSpeech] = useState(PLOMBOSPEECH[currPage])
 
   const navClick = (dest) => {
-    setCurrPage(dest)
-    setCurrSpeech(PLOMBOSPEECH[dest])
+    if(dest.startsWith('phone')) {
+      const groupToCall = dest.substring(5)
+      //Lance un appel vers le groupe
+    }
+    else {
+      setCurrPage(dest)
+      setCurrSpeech(PLOMBOSPEECH[dest])
+    }
   }
 
   const divStyle = {
@@ -22,6 +30,8 @@ const App = () => {
     display: 'inline-block',
     verticalAlign: 'middle',
   }
+
+  useEffect(() => sipService.connection(), [])
 
   return (
     <>
