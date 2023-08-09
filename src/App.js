@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
 import MapImg from './Components/MapImg'
 import PlomboImg from './Components/PlomboImg'
