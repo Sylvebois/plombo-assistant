@@ -7,6 +7,7 @@ import Dictaphone from './components/Dictaphone'
 import ChoiceButtons from './components/ChoiceButtons'
 
 import sipService from './services/sip'
+import jokeService from './services/joke'
 
 import { PLOMBOSPEECH } from './text'
 
@@ -14,10 +15,16 @@ const App = () => {
   const [currPage, setCurrPage] = useState('home')
   const [currSpeech, setCurrSpeech] = useState(PLOMBOSPEECH[currPage])
 
-  const navClick = (dest) => {
+  const navClick = async (dest) => {
     if(dest.startsWith('phone')) {
       const groupToCall = dest.substring(5)
       //Lance un appel vers le groupe
+    }
+    else if(dest === 'joke') {
+      const joke = await jokeService.getJoke()
+      console.log(joke)
+      setCurrPage(dest)
+      //setCurrSpeech()
     }
     else {
       setCurrPage(dest)
