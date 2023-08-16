@@ -2,10 +2,10 @@ export const PLOMBOSPEECH = {
   home: "Bonjour, je suis Plombo. Comment puis-je vous aider ?",
   callColleagues: "Quel département dois-je appeler ?",
   lookingFor: "De quel genre d'information avez-vous besoin ?",
-  lookingForSpareParts: "Pour les pièces détachées, veuillez vous rendre au comptoir en suivant le chemin indiqué ci-dessus.",
-  lookingForSanitary: "Le département sanitaire se trouve juste ici, comme indiqué ci-dessus.",
-  lookingForKitchen: "Le département cuisine se trouve au deuxième étage, comme indiqué ci-dessus.",
-  lookingForHeating: "Le département chauffage se situe à l'étage en dessous, comme indiqué sur cette carte.",
+  lookingForSpareParts: "Si vous êtes dans la salle d'exposition, le comptoir des pièces détachées est accessible en suivant le chemin indiqué.",
+  lookingForSanitary: "Le département sanitaire se trouve au rez-de-chaussée de la salle d'exposition.",
+  lookingForKitchen: "Le département cuisine se trouve au deuxième étage de la salle d'exposition.",
+  lookingForHeating: "Le département chauffage se situe à l'étage en dessous de la salle d'exposition.",
   whoAreYou: "Je suis Plombo. J'ai été dessiné par Mireille Vicat il y a bien longtemps.",
   bored: "Pour vous faire patienter, peut-être voulez-vous voir quelques catalogues ? Sinon, je peux vous distraire avec un petit jeu ..."
 }

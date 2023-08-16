@@ -4,9 +4,9 @@ const MapImg = ({ currPage }) => {
   const images = {
     lookingFor: { path: require('../assets/baseMap.jpg'), alt: 'Carte de base' },
     lookingForSpareParts: { path: require('../assets/wayToSpareParts.gif'), alt: 'Chemin vers le comptoir' },
-    lookingForSanitary: { path: require('../assets/baseMap.jpg'), alt: 'Chemin vers le sanitaire' },
-    lookingForKitchen: { path: require('../assets/baseMap.jpg'), alt: 'Chemin vers les cuisines' },
-    lookingForHeating: { path: require('../assets/baseMap.jpg'), alt: 'Chemin vers le chauffage' },
+    lookingForSanitary: { path: require('../assets/wayToSanit.gif'), alt: 'Chemin vers le sanitaire' },
+    lookingForKitchen: { path: require('../assets/wayToKitchen.gif'), alt: 'Chemin vers les cuisines' },
+    lookingForHeating: { path: require('../assets/wayToChauffage.gif'), alt: 'Chemin vers le chauffage' },
   }
 
   const style = {
