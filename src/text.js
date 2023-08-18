@@ -7,7 +7,7 @@ export const PLOMBOSPEECH = {
   lookingForKitchen: "Le département cuisine se trouve au deuxième étage de la salle d'exposition.",
   lookingForHeating: "Le département chauffage se situe à l'étage en dessous de la salle d'exposition.",
   whoAreYou: "Je suis Plombo. J'ai été dessiné par Mireille Vicat il y a bien longtemps.",
-  bored: "Pour vous faire patienter, peut-être voulez-vous voir quelques catalogues ? Sinon, je peux vous distraire avec un petit jeu ..."
+  bored: "Pour vous faire patienter, peut-être voulez-vous voir quelques catalogues ? Sinon, je peux vous distraire avec une petite blague ..."
 }
 
 export const USERANSWERS = {
@@ -39,7 +39,7 @@ export const USERANSWERS = {
   bored: [
     { id: 'bored01', text: "Montre-moi les catalogues", navTo: 'bored' },
     { id: 'bored02', text: "Raconte-moi une blague", navTo: 'joke' },
-    { id: 'bored03', text: "Démarre le jeu !", navTo: 'bored' },
+    //{ id: 'bored03', text: "Démarre le jeu !", navTo: 'bored' },
     { id: 'bored04', text: "Non merci, ça ira ...", navTo: 'home' },
   ],
   joke: [

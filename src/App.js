@@ -22,9 +22,9 @@ const App = () => {
     }
     else if(dest === 'joke') {
       const joke = await jokeService.getJoke()
-      console.log(joke)
+      console.log(joke[0].data.content)
       setCurrPage(dest)
-      //setCurrSpeech()
+      setCurrSpeech(joke[0].data.content.text_head)
     }
     else {
       setCurrPage(dest)
