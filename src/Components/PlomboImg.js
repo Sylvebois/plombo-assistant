@@ -1,5 +1,3 @@
-//import './PlomboZone.css';
-
 const PlomboImg = () => {
   const style = {
     maxHeight: '45vh',

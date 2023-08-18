@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 
+import MicroImg from './MicroImg'
 import { USERANSWERS } from '../text'
 
 const Dictaphone = ({ currPage, voiceClick }) => {
@@ -32,17 +33,17 @@ const Dictaphone = ({ currPage, voiceClick }) => {
     marginTop: '2vh',
     marginBottom: '2vh',
     marginLeft: '2vw',
-    marginRight:'2vw',
+    marginRight: '2vw',
     fontSize: '3vh',
     fontWeight: 'bold',
-    borderWidth: '0px',
+    border: `10px inset ${listening ? 'rgb(100,255,100)' : 'rgb(255,100,100)'}`,
     borderRadius: '60px',
-    backgroundColor: listening ? 'red' : 'green'
+    backgroundColor: listening ? 'green' : 'red'
   }
 
   return (
-    <button style={style} onClick={listenClick}>
-      {listening ? 'Stop' : 'Parler'}
+    <button style={style} className={listening ? 'listening' : ''} onClick={listenClick}>
+      <MicroImg />
     </button>
   )
 }
