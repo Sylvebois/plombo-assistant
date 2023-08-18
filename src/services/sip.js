@@ -3,16 +3,18 @@ import JsSIP from 'jssip'
 let ua
 
 const connection = () => {
-  const socket = new JsSIP.WebSocketInterface(`wss://${process.env.REALM}`)
+  const socket = new JsSIP.WebSocketInterface(`wss://${process.env.REACT_APP_SIP_PROXYS}`)
+  socket.via_transport='UDP'
+
   const config = {
-    sockets: [socket],
-    uri: `sip:${process.env.SIPUSER}@${process.env.REALM}`,
-    password: process.env.SIPPASS,
+    sockets: socket,
+    uri: `sip:${process.env.REACT_APP_SIP_USER}@${process.env.REACT_APP_SIP_REALM}`,
+    password: process.env.REACT_APP_SIP_PASS,
     display_name: 'BOT',
-    realm: process.env.REALM
+    realm: process.env.REACT_APP_SIP_REALM,
   }
+
   ua = new JsSIP.UA(config)
-  console.log(ua)
   //ua.start()
 }
 
@@ -26,7 +28,7 @@ const call = (groupToCall) => {
 
   const options = {
     'eventHandlers': eventHandlers,
-    'mediaConstraints': { 'audio': true, 'video': true }
+    'mediaConstraints': { 'audio': true, 'video': false }
   }
 
   return ua.call(`sip:${groupToCall}@${process.env.REALM}`, options)
