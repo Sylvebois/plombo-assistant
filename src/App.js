@@ -16,15 +16,18 @@ const App = () => {
   const [currSpeech, setCurrSpeech] = useState(PLOMBOSPEECH[currPage])
 
   const navClick = async (dest) => {
-    if(dest.startsWith('phone')) {
+    if (dest.startsWith('phone')) {
       const groupToCall = dest.substring(5)
       //Lance un appel vers le groupe
     }
-    else if(dest === 'joke') {
+    else if (dest === 'joke') {
       const joke = await jokeService.getJoke()
-      console.log(joke[0].data.content)
+      const textHead = joke[0].data.content.text_head
+      const text = joke[0].data.content.text
+      const textHidden = joke[0].data.content.text_hidden
+
       setCurrPage(dest)
-      setCurrSpeech(joke[0].data.content.text_head)
+      setCurrSpeech([textHead, text, textHidden])
     }
     else {
       setCurrPage(dest)
