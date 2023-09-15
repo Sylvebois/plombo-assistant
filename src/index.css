@@ -7,6 +7,14 @@ body {
   font-size: 3vh;
 }
 
+.toReveal {
+  background-color: black;
+}
+
+.reveal {
+  animation: fadeIn 3s;
+}
+
 .listening {
   animation: pulse 1.5s infinite;
 }
@@ -20,5 +28,14 @@ body {
   }
     100% {
     transform: scale(.9);
+  }
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+  }
+  to { 
+    opacity: 1; 
   }
 }
