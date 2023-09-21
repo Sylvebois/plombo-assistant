@@ -6,6 +6,7 @@ import Talker from './components/Talker'
 import Dictaphone from './components/Dictaphone'
 import ChoiceButtons from './components/ChoiceButtons'
 
+import aiService from './services/ai'
 import sipService from './services/sip'
 import jokeService from './services/joke'
 
@@ -19,6 +20,7 @@ const App = () => {
     if (dest.startsWith('phone')) {
       const groupToCall = dest.substring(5)
       //Lance un appel vers le groupe
+      sipService.call(groupToCall)
     }
     else if (dest === 'joke') {
       const joke = await jokeService.getJoke()
@@ -34,6 +36,8 @@ const App = () => {
       setCurrSpeech(PLOMBOSPEECH[dest])
     }
   }
+
+  const test = async () => { await aiService.askAI('Bonjour') }
 
   const divStyle = {
     margin: '0',
@@ -58,6 +62,7 @@ const App = () => {
       <div style={divStyle}>
         <ChoiceButtons currPage={currPage} handleClick={navClick} />
       </div>
+      <button onClick={() => test()}>test</button>
     </>
   )
 }
