@@ -15,7 +15,8 @@ export const USERANSWERS = {
     { id: 'home01', text: "Je cherche quelque chose ...", navTo: 'lookingFor' },
     { id: 'home02', text: "Il faudrait appeler quelqu'un ...", navTo: 'callColleagues' },
     { id: 'home03', text: "Qui es-tu ?", navTo: 'whoAreYou' },
-    { id: 'home04', text: "Je m'ennuie ...", navTo: 'bored' }
+    { id: 'home04', text: "Discutons un peu ...", navTo: 'chat' },
+    { id: 'home05', text: "Je m'ennuie ...", navTo: 'bored' }
   ],
   callColleagues: [
     { id: 'call01', text: 'Le comptoir.', navTo: 'phone220' },

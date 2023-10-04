@@ -39,32 +39,99 @@ const App = () => {
 
   const test = async () => { await aiService.askAI('Bonjour') }
 
-  const divStyle = {
-    margin: '0',
-    display: 'inline-block',
-    verticalAlign: 'middle',
-  }
-
   useEffect(() => sipService.connection(), [])
 
-  return (
-    <>
-      {
-        currPage.startsWith('lookingFor') ?
-          <MapImg currPage={currPage} /> :
-          null
-      }
-      <PlomboImg />
-      <Talker currSpeech={currSpeech} />
-      <div style={divStyle}>
-        <Dictaphone currPage={currPage} voiceClick={navClick} />
-      </div>
-      <div style={divStyle}>
-        <ChoiceButtons currPage={currPage} handleClick={navClick} />
-      </div>
-      <button onClick={() => test()}>test</button>
-    </>
-  )
+  if (currPage === 'chat') {
+    const chatContainerStyle = {
+      border: "3px solid black",
+      borderRadius: 10,
+      margin: 0,
+      padding: 10,
+      display: 'inline-block',
+      verticalAlign: 'top',
+      width: '70vw',
+      height: '90vh'
+    }
+
+    const chatDivStyle = {
+      border: "1px solid red",
+      height: '80vh'
+    }
+
+    const promptDivStyle = {
+      border: "1px solid green",
+      height: '10vh',
+      verticalAlign: 'top',
+      margin: 0
+    }
+
+    const inputStyle = {
+      height: '9vh',
+      width: '60vw',
+      marginLeft: '2vw',
+      verticalAlign: 'top',
+      resize: 'vertical'
+    }
+
+    const sendButtonStyle = {
+      height: 'inherit',
+    }
+
+    const rightSideStyle = {
+      border: "3px solid black",
+      borderRadius: 10,
+      margin: 0,
+      padding: 10,
+      display: 'inline-block',
+      verticalAlign: 'top',
+      width: '15vw',
+      height: '90vh'
+    }
+
+    return (
+      <>
+        <div style={chatContainerStyle}>
+          <div style={chatDivStyle}>chat will come here</div>
+          <div style={promptDivStyle}>
+            <button style={sendButtonStyle}>Speak</button>
+            <textarea style={inputStyle}/>
+            <button style={sendButtonStyle}>envoyer</button>
+          </div>
+        </div>
+        <div style={rightSideStyle}>
+          <PlomboImg />
+          <button style={{ width: '100%' }} onClick={() => navClick('home')}>Retour</button>
+        </div>
+      </>
+    )
+  }
+  else {
+
+    const divStyle = {
+      margin: '0',
+      display: 'inline-block',
+      verticalAlign: 'middle',
+    }
+
+    return (
+      <>
+        {
+          currPage.startsWith('lookingFor') ?
+            <MapImg currPage={currPage} className='appear' /> :
+            null
+        }
+        <PlomboImg />
+        <Talker currSpeech={currSpeech} />
+        <div style={divStyle}>
+          <Dictaphone currPage={currPage} voiceClick={navClick} />
+        </div>
+        <div style={divStyle}>
+          <ChoiceButtons currPage={currPage} handleClick={navClick} />
+        </div>
+        <button onClick={() => test()}>test</button>
+      </>
+    )
+  }
 }
 
 export default App;
