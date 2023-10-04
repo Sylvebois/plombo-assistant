@@ -18,7 +18,8 @@ const MapImg = ({ currPage }) => {
 
   return (
     <img
-      style={style}
+      //style={style}
+      className='mapImg'
       src={images[currPage].path}
       alt={images[currPage].alt}
     />)
