@@ -7,6 +7,14 @@ body {
   font-size: 3vh;
 }
 
+.mapImg {
+  max-height: 45vh; 
+  max-width: 45vw; 
+  display: inline-block; 
+  vertical-align: middle;
+  animation: growUp 1s;
+}
+
 .toReveal {
   background-color: black;
 }
@@ -37,5 +45,16 @@ body {
   }
   to { 
     opacity: 1; 
+  }
+}
+
+@keyframes growUp {
+  from {
+    max-width: 0;
+    max-height: 0;
+  }
+  to {
+    max-width: 45vw;
+    max-height: 45vh;
   }
 }
