@@ -37,7 +37,9 @@ const App = () => {
     }
   }
 
-  const test = async () => { await aiService.askAI('Bonjour') }
+  const test = async () => { 
+    console.log (aiService.askToAI('Bonjour, comment t\'appelles-tu ?'))
+  }
 
   useEffect(() => sipService.connection(), [])
 
@@ -94,8 +96,8 @@ const App = () => {
           <div style={chatDivStyle}>chat will come here</div>
           <div style={promptDivStyle}>
             <button style={sendButtonStyle}>Speak</button>
-            <textarea style={inputStyle}/>
-            <button style={sendButtonStyle}>envoyer</button>
+            <textarea style={inputStyle} />
+            <button style={sendButtonStyle} onClick={() => test()}>envoyer</button>
           </div>
         </div>
         <div style={rightSideStyle}>
@@ -128,7 +130,6 @@ const App = () => {
         <div style={divStyle}>
           <ChoiceButtons currPage={currPage} handleClick={navClick} />
         </div>
-        <button onClick={() => test()}>test</button>
       </>
     )
   }
