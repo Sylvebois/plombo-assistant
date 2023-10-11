@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 
-import MicroImg from './MicroImg'
+import { MicroImg } from './SvgImg'
 import { USERANSWERS } from '../text'
 
 const Dictaphone = ({ currPage, voiceClick }) => {

@@ -19,7 +19,7 @@ const askToAI = async (request) => {
       n_predict: 512, 
     })
   })
-  return await response.json() //(await response.json()).content
+  return await response.json()
 }
 
 export default { askToAI } 

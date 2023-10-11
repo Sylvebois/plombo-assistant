@@ -3,21 +3,19 @@ import PropTypes from 'prop-types'
 
 import aiService from '../services/ai'
 
+import { MicroImg, SendImg, UserChatImg, PlomboChatImg } from './SvgImg'
+
 const ChatElem = ({ who, txt }) => {
   const imgStyle = {
     borderRadius: 20,
-    height: '4h',
+    height: '4vh',
     width: '4vh',
     display: 'inline-block'
   }
 
-  const imgSrc = (who === 'Plombo') ? 
-    require('../assets/plombo_head.png') : 
-    require('../assets/default_user_mini.png')
-
   return (
     <p>
-      <img src={imgSrc} style={imgStyle} />
+      { who === 'Plombo' ? <PlomboChatImg /> : <UserChatImg /> }
       <strong> {who}:</strong>
       <br />
       {txt}
@@ -28,14 +26,17 @@ const ChatElem = ({ who, txt }) => {
 const Chat = ({ goBack }) => {
   const [currRequest, setCurrRequest] = useState('')
   const [currChat, setCurrChat] = useState([])
+  const [respTime, setRespTime] = useState(0)
 
   const sendRequest = async () => {
     if (currRequest !== '') {
+      const startTime = Date.now()
       const newUserChat = currChat.concat({ who: 'User', txt: currRequest })
       setCurrChat(newUserChat)
 
       const answer = await aiService.askToAI(currRequest)
       const newPlomboChat = newUserChat.concat([{ who: 'Plombo', txt: answer.content.replace('[PLOMBO]', '') }])
+      setRespTime(Date.now() - startTime)
       setCurrChat(newPlomboChat)
       setCurrRequest('')
     }
@@ -108,16 +109,21 @@ const Chat = ({ goBack }) => {
           }
         </div>
         <div style={promptDivStyle}>
-          <button style={sendButtonStyle}>Speak</button>
+          <button style={sendButtonStyle}>
+            <MicroImg />
+          </button>
           <textarea
             value={currRequest}
             style={inputStyle}
             onChange={({ target }) => setCurrRequest(target.value)}
           />
-          <button style={sendButtonStyle} onClick={() => sendRequest()}>envoyer</button>
+          <button style={sendButtonStyle} onClick={() => sendRequest()}>
+            <SendImg />
+          </button>
         </div>
       </div>
       <div style={rightSideStyle}>
+        <div>Réponse reçue en : {respTime}ms </div>
         <button style={{ width: '100%' }} onClick={goBack}>Retour</button>
       </div>
     </>
