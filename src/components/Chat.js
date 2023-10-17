@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
+import { FaPaperPlane, FaMicrophone, FaMicrophoneSlash, FaComment } from 'react-icons/fa'
+
+import { PlomboChatImg } from './PlomboImg'
 
 import aiService from '../services/ai'
-
-import { MicroImg, SendImg, UserChatImg, PlomboChatImg } from './SvgImg'
 
 const ChatElem = ({ who, txt }) => {
   const imgStyle = {
@@ -15,7 +16,7 @@ const ChatElem = ({ who, txt }) => {
 
   return (
     <p>
-      { who === 'Plombo' ? <PlomboChatImg /> : <UserChatImg /> }
+      {who === 'Plombo' ? <PlomboChatImg /> : <FaComment />}
       <strong> {who}:</strong>
       <br />
       {txt}
@@ -110,7 +111,7 @@ const Chat = ({ goBack }) => {
         </div>
         <div style={promptDivStyle}>
           <button style={sendButtonStyle}>
-            <MicroImg />
+            <FaMicrophone />
           </button>
           <textarea
             value={currRequest}
@@ -118,7 +119,7 @@ const Chat = ({ goBack }) => {
             onChange={({ target }) => setCurrRequest(target.value)}
           />
           <button style={sendButtonStyle} onClick={() => sendRequest()}>
-            <SendImg />
+            <FaPaperPlane />
           </button>
         </div>
       </div>

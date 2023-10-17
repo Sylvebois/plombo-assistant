@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
+import { FaMicrophone, FaMicrophoneSlash } from 'react-icons/fa'
 
-import { MicroImg } from './SvgImg'
 import { USERANSWERS } from '../text'
 
 const Dictaphone = ({ currPage, voiceClick }) => {
@@ -27,7 +27,7 @@ const Dictaphone = ({ currPage, voiceClick }) => {
     }
   }
 
-  const style = {
+  const baseStyle = {
     height: '100px',
     width: '100px',
     marginTop: '2vh',
@@ -36,16 +36,35 @@ const Dictaphone = ({ currPage, voiceClick }) => {
     marginRight: '2vw',
     fontSize: '3vh',
     fontWeight: 'bold',
-    border: `10px inset ${listening ? 'rgb(100,255,100)' : 'rgb(255,100,100)'}`,
     borderRadius: '60px',
-    backgroundColor: listening ? 'green' : 'red'
   }
 
-  return (
-    <button style={style} className={listening ? 'listening' : ''} onClick={listenClick}>
-      <MicroImg />
-    </button>
-  )
+  const microphoneStyle = {
+    height: '50px',
+    width: '50px'
+  }
+
+  if (listening) {
+    return (
+      <button
+        style={{ ...baseStyle, border: '10px inset rgb(100,255,100)', backgroundColor: 'green' }}
+        className='listening'
+        onClick={listenClick}
+      >
+        <FaMicrophone style={microphoneStyle} />
+      </button>
+    )
+  }
+  else {
+    return (
+      <button
+        style={{ ...baseStyle, border: '10px inset rgb(255,100,100)', backgroundColor: 'red' }}
+        onClick={listenClick}
+      >
+        <FaMicrophoneSlash style={microphoneStyle} />
+      </button>
+    )
+  }
 }
 
 

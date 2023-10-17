@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 
 import MapImg from './components/MapImg'
-import PlomboImg from './components/PlomboImg'
 import Talker from './components/Talker'
 import Dictaphone from './components/Dictaphone'
 import ChoiceButtons from './components/ChoiceButtons'
 import Chat from './components/Chat'
+import { PlomboImg } from './components/PlomboImg'
 
 import sipService from './services/sip'
 import jokeService from './services/joke'
