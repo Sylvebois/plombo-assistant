@@ -1,25 +1,23 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
-import { FaPaperPlane, FaMicrophone, FaMicrophoneSlash, FaComment } from 'react-icons/fa'
+import { FaPaperPlane, FaMicrophone, FaMicrophoneSlash, FaComment, FaSpinner } from 'react-icons/fa'
 
 import { PlomboChatImg } from './PlomboImg'
 
 import aiService from '../services/ai'
 
-const ChatElem = ({ who, txt }) => {
-  const imgStyle = {
-    borderRadius: 20,
-    height: '4vh',
-    width: '4vh',
-    display: 'inline-block'
-  }
-
+const ChatElem = ({ who, txt, sources }) => {
   return (
     <p>
-      {who === 'Plombo' ? <PlomboChatImg /> : <FaComment />}
+      {who === 'Plombo' ? <PlomboChatImg /> : <FaComment style={{ fill: 'red' }} />}
       <strong> {who}:</strong>
       <br />
       {txt}
+      {
+        sources.length ?
+          sources.map(source => <><br /><i>Cette information provient de {source}</i></>) :
+          null
+      }
     </p>
   )
 }
@@ -28,18 +26,26 @@ const Chat = ({ goBack }) => {
   const [currRequest, setCurrRequest] = useState('')
   const [currChat, setCurrChat] = useState([])
   const [respTime, setRespTime] = useState(0)
+  const [buttonImage, setButtonImage] = useState(<FaPaperPlane />)
 
   const sendRequest = async () => {
     if (currRequest !== '') {
       const startTime = Date.now()
-      const newUserChat = currChat.concat({ who: 'User', txt: currRequest })
+      const lastChat = { who: 'User', txt: currRequest, sources: [] }
+      const newUserChat = currChat.concat(lastChat)
       setCurrChat(newUserChat)
-
-      const answer = await aiService.askToAI(currRequest)
-      const newPlomboChat = newUserChat.concat([{ who: 'Plombo', txt: answer.content.replace('[PLOMBO]', '') }])
+      setCurrRequest('')
+      setButtonImage(<FaSpinner className='spinner'/>)
+      
+      const answer = await aiService.askToAI(lastChat.txt)
+      const newPlomboChat = newUserChat.concat([{
+        who: 'Plombo',
+        txt: answer.content,
+        sources: answer.sources
+      }])
       setRespTime(Date.now() - startTime)
       setCurrChat(newPlomboChat)
-      setCurrRequest('')
+      setButtonImage(<FaPaperPlane />)
     }
   }
 
@@ -55,13 +61,11 @@ const Chat = ({ goBack }) => {
   }
 
   const chatDivStyle = {
-    border: '1px solid red',
     height: '80vh',
-    overflow: 'auto'
+    overflowY: 'scroll'
   }
 
   const promptDivStyle = {
-    border: '1px solid green',
     height: '10vh',
     verticalAlign: 'top',
     margin: 0
@@ -103,6 +107,7 @@ const Chat = ({ goBack }) => {
                 <ChatElem
                   who={elem.who}
                   txt={elem.txt}
+                  sources={elem.sources}
                   key={index}
                 />
               ) :
@@ -119,7 +124,7 @@ const Chat = ({ goBack }) => {
             onChange={({ target }) => setCurrRequest(target.value)}
           />
           <button style={sendButtonStyle} onClick={() => sendRequest()}>
-            <FaPaperPlane />
+            { buttonImage }
           </button>
         </div>
       </div>
