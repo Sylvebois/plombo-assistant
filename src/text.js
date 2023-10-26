@@ -38,7 +38,7 @@ export const USERANSWERS = {
   lookingForHeating: [{ id: 'lookingForHeating01', text: "Merci", navTo: 'home' }],
   whoAreYou: [{ id: 'whoAreYou01', text: "Merci pour l'info ...", navTo: 'home' }],
   bored: [
-    { id: 'bored01', text: "Montre-moi les catalogues", navTo: 'bored' },
+    { id: 'bored01', text: "Montre-moi les catalogues", navTo: 'catalog' },
     { id: 'bored02', text: "Raconte-moi une blague", navTo: 'joke' },
     //{ id: 'bored03', text: "Démarre le jeu !", navTo: 'bored' },
     { id: 'bored04', text: "Non merci, ça ira ...", navTo: 'home' },

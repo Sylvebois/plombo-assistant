@@ -5,6 +5,7 @@ import Talker from './components/Talker'
 import Dictaphone from './components/Dictaphone'
 import ChoiceButtons from './components/ChoiceButtons'
 import Chat from './components/Chat'
+import PdfViewer from './components/PdfViewer'
 import { PlomboImg } from './components/PlomboImg'
 
 import sipService from './services/sip'
@@ -47,6 +48,9 @@ const App = () => {
 
   if (currPage === 'chat') {
     return (<Chat goBack={() => setCurrPage('home')} />)
+  }
+  else if(currPage === 'catalog') {
+    return(<PdfViewer goBack={() => setCurrPage('home')} />)
   }
   else {
     return (
