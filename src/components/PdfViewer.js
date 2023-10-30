@@ -12,14 +12,10 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 ).toString()
 
 const FileList = ({ list, handleClick }) =>
-  <ul>
-    {
-      list.map((elem, index) =>
-        <li key={index} onClick={() => handleClick(elem)}>
-          <a href="#">{elem}</a>
-        </li>)
-    }
-  </ul>
+  <select onChange={(e) => handleClick(e.target.value)}>
+    <option>Choisissez un catalogue</option>
+    {list.map((elem, index) => <option key={index}>{elem}</option>)}
+  </select>
 
 const PdfNavigator = ({ pageNumber, numPages, setPageNumber }) => {
   const checkPageNumberInput = (e) => {
@@ -62,9 +58,14 @@ const PdfViewer = ({ goBack }) => {
   }
 
   const getPdfFile = async (name) => {
-    const resp = await pdfService.getPdfFile(name);
-    setPdfUrl(resp)
-    setPageNumber(1)
+    if(name.startsWith('Choisissez')) {
+      setPdfUrl(null)
+    }
+    else {
+      const resp = await pdfService.getPdfFile(name);
+      setPdfUrl(resp)
+      setPageNumber(1)
+    }
   }
 
   const onDocumentLoadSuccess = ({ numPages }) => setNumPages(numPages)
@@ -102,19 +103,19 @@ const PdfViewer = ({ goBack }) => {
           Retour
         </button>
       </div>
-      <div style={{ display: 'block', maxWidth:'100vw' }}>
-      {
-        pdfUrl === null ?
-          'Veuillez choisir un catalogue' :
-          pdfUrl === 'error' ?
-            'Erreur lors du chargement du catalogue' :
-            <Document
-              file={pdfUrl}
-              onLoadSuccess={onDocumentLoadSuccess}
-            >
-              <Page pageNumber={pageNumber} />
-            </Document>
-      }
+      <div style={{ display: 'block', maxWidth: '100vw' }}>
+        {
+          pdfUrl === null ?
+            'Veuillez choisir un catalogue' :
+            pdfUrl === 'error' ?
+              'Erreur lors du chargement du catalogue' :
+              <Document
+                file={pdfUrl}
+                onLoadSuccess={onDocumentLoadSuccess}
+              >
+                <Page pageNumber={pageNumber} />
+              </Document>
+        }
       </div>
     </>
   )
