@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import { FaPaperPlane, FaMicrophone, FaMicrophoneSlash, FaComment, FaSpinner } from 'react-icons/fa'
 
@@ -28,6 +28,8 @@ const Chat = ({ goBack }) => {
   const [respTime, setRespTime] = useState(0)
   const [buttonImage, setButtonImage] = useState(<FaPaperPlane />)
 
+  const div = useRef(null)
+
   const sendRequest = async () => {
     if (currRequest !== '') {
       const startTime = Date.now()
@@ -35,8 +37,8 @@ const Chat = ({ goBack }) => {
       const newUserChat = currChat.concat(lastChat)
       setCurrChat(newUserChat)
       setCurrRequest('')
-      setButtonImage(<FaSpinner className='spinner'/>)
-      
+      setButtonImage(<FaSpinner className='spinner' />)
+
       const answer = await aiService.askToAI(lastChat.txt)
       const newPlomboChat = newUserChat.concat([{
         who: 'Plombo',
@@ -48,6 +50,14 @@ const Chat = ({ goBack }) => {
       setButtonImage(<FaPaperPlane />)
     }
   }
+
+  useEffect(() => {
+    console.log('useEffect', div)
+    if (div) {
+      console.log('useEffect on div')
+      div.current.scrollTop = div.current.scrollHeight
+    }
+  }, [currChat])
 
   const chatContainerStyle = {
     border: '3px solid black',
@@ -100,7 +110,7 @@ const Chat = ({ goBack }) => {
   return (
     <>
       <div style={chatContainerStyle}>
-        <div style={chatDivStyle}>
+        <div style={chatDivStyle} ref={div}>
           {
             currChat.length ?
               currChat.map((elem, index) =>
@@ -124,7 +134,7 @@ const Chat = ({ goBack }) => {
             onChange={({ target }) => setCurrRequest(target.value)}
           />
           <button style={sendButtonStyle} onClick={() => sendRequest()}>
-            { buttonImage }
+            {buttonImage}
           </button>
         </div>
       </div>
