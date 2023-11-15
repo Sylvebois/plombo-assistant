@@ -15,7 +15,7 @@ export const USERANSWERS = {
     { id: 'home01', text: "Je cherche quelque chose ...", navTo: 'lookingFor' },
     { id: 'home02', text: "Il faudrait appeler quelqu'un ...", navTo: 'callColleagues' },
     { id: 'home03', text: "Qui es-tu ?", navTo: 'whoAreYou' },
-    { id: 'home04', text: "Discutons un peu ...", navTo: 'chat' },
+    { id: 'home04', text: "Montre-moi les catalogues", navTo: 'catalog' },
     { id: 'home05', text: "Je m'ennuie ...", navTo: 'bored' }
   ],
   callColleagues: [
@@ -38,8 +38,8 @@ export const USERANSWERS = {
   lookingForHeating: [{ id: 'lookingForHeating01', text: "Merci", navTo: 'home' }],
   whoAreYou: [{ id: 'whoAreYou01', text: "Merci pour l'info ...", navTo: 'home' }],
   bored: [
-    { id: 'bored01', text: "Montre-moi les catalogues", navTo: 'catalog' },
     { id: 'bored02', text: "Raconte-moi une blague", navTo: 'joke' },
+    { id: 'bored03', text: "Discutons un peu ...", navTo: 'chat' },
     //{ id: 'bored03', text: "Démarre le jeu !", navTo: 'bored' },
     { id: 'bored04', text: "Non merci, ça ira ...", navTo: 'home' },
   ],

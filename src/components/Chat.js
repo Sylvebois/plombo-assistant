@@ -15,7 +15,7 @@ const ChatElem = ({ who, txt, sources }) => {
       {txt}
       {
         sources.length ?
-          sources.map(source => <><br /><i>Cette information provient de {source}</i></>) :
+          sources.map(source => <><br /><i style={{ fontSize: '2vh' }}>Cette information provient de {source}</i></>) :
           null
       }
     </p>

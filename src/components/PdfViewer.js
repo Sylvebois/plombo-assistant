@@ -12,7 +12,10 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 ).toString()
 
 const FileList = ({ list, handleClick }) =>
-  <select onChange={(e) => handleClick(e.target.value)}>
+  <select
+    style={{ height: '3vh' }}
+    onChange={(e) => handleClick(e.target.value)}
+  >
     <option>Choisissez un catalogue</option>
     {list.map((elem, index) => <option key={index}>{elem}</option>)}
   </select>
@@ -27,7 +30,9 @@ const PdfNavigator = ({ pageNumber, numPages, setPageNumber }) => {
 
   const inputStyle = {
     textAlign: 'right',
-    maxWidth: '50px'
+    maxWidth: '70px',
+    height: '3vh',
+    fontSize: '2.9vh',
   }
 
   return (
@@ -58,7 +63,7 @@ const PdfViewer = ({ goBack }) => {
   }
 
   const getPdfFile = async (name) => {
-    if(name.startsWith('Choisissez')) {
+    if (name.startsWith('Choisissez')) {
       setPdfUrl(null)
     }
     else {
