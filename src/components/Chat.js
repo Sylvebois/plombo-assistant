@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
-import { FaPaperPlane, FaMicrophone, FaMicrophoneSlash, FaComment, FaSpinner } from 'react-icons/fa'
+import { FaPaperPlane, FaMicrophoneLines, FaMicrophoneLinesSlash, FaComment, FaSpinner } from 'react-icons/fa6'
 
 import { PlomboChatImg } from './PlomboImg'
 
-import aiService from '../services/ai'
+import { askToAI } from '../services/ai'
 
 const ChatElem = ({ who, txt, sources }) => {
   return (
@@ -39,7 +39,7 @@ const Chat = ({ goBack }) => {
       setCurrRequest('')
       setButtonImage(<FaSpinner className='spinner' />)
 
-      const answer = await aiService.askToAI(lastChat.txt)
+      const answer = await askToAI(lastChat.txt)
       const newPlomboChat = newUserChat.concat([{
         who: 'Plombo',
         txt: answer.content,
@@ -126,7 +126,7 @@ const Chat = ({ goBack }) => {
         </div>
         <div style={promptDivStyle}>
           <button style={sendButtonStyle}>
-            <FaMicrophone />
+            <FaMicrophoneLines />
           </button>
           <textarea
             value={currRequest}

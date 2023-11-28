@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
-import { FaMicrophone, FaMicrophoneSlash } from 'react-icons/fa'
+import { FaMicrophoneLines, FaMicrophoneLinesSlash } from 'react-icons/fa6'
 
 import { USERANSWERS } from '../text'
 
@@ -51,7 +51,7 @@ const Dictaphone = ({ currPage, voiceClick }) => {
         className='listening'
         onClick={listenClick}
       >
-        <FaMicrophone style={microphoneStyle} />
+        <FaMicrophoneLines style={microphoneStyle} />
       </button>
     )
   }
@@ -61,7 +61,7 @@ const Dictaphone = ({ currPage, voiceClick }) => {
         style={{ ...baseStyle, border: '10px inset rgb(255,100,100)', backgroundColor: 'red' }}
         onClick={listenClick}
       >
-        <FaMicrophoneSlash style={microphoneStyle} />
+        <FaMicrophoneLinesSlash style={microphoneStyle} />
       </button>
     )
   }

@@ -6,16 +6,18 @@ export const PLOMBOSPEECH = {
   lookingForSanitary: "Le département sanitaire se trouve au rez-de-chaussée de la salle d'exposition.",
   lookingForKitchen: "Le département cuisine se trouve au deuxième étage de la salle d'exposition.",
   lookingForHeating: "Le département chauffage se situe à l'étage en dessous de la salle d'exposition.",
+  searchProduct: "Pour vous aider, je peux chercher l'information dans notre assortiment de base. Sinon, vous pouvez également regarder quelques catalogues de nos fournisseurs.",
+  productSearch: "Notre assortiment de base contient plus de 8000 références. Quel genre de produit cherchez-vous ?",
   whoAreYou: "Je suis Plombo. J'ai été dessiné par Mireille Vicat il y a bien longtemps.",
-  bored: "Pour vous faire patienter, peut-être voulez-vous voir quelques catalogues ? Sinon, je peux vous distraire avec une petite blague ..."
+  bored: "Pour vous faire patienter, nous pouvons discuter ou je peux vous distraire avec une petite blague ..."
 }
 
 export const USERANSWERS = {
   home: [
-    { id: 'home01', text: "Je cherche quelque chose ...", navTo: 'lookingFor' },
+    { id: 'home01', text: "Je cherche un département ...", navTo: 'lookingFor' },
     { id: 'home02', text: "Il faudrait appeler quelqu'un ...", navTo: 'callColleagues' },
-    { id: 'home03', text: "Qui es-tu ?", navTo: 'whoAreYou' },
-    { id: 'home04', text: "Montre-moi les catalogues", navTo: 'catalog' },
+    { id: 'home03', text: "Je cherche un article ...", navTo: 'searchProduct' },
+    { id: 'home04', text: "Qui es-tu ?", navTo: 'whoAreYou' },
     { id: 'home05', text: "Je m'ennuie ...", navTo: 'bored' }
   ],
   callColleagues: [
@@ -36,6 +38,11 @@ export const USERANSWERS = {
   lookingForSanitary: [{ id: 'lookingForSanitary01', text: "Merci", navTo: 'home' }],
   lookingForKitchen: [{ id: 'lookingForKitchen01', text: "Merci", navTo: 'home' }],
   lookingForHeating: [{ id: 'lookingForHeating01', text: "Merci", navTo: 'home' }],
+  searchProduct: [
+    { id: 'searchProduct01', text: "Fais une recherche pour moi", navTo: 'productSearch' },
+    { id: 'searchProduct02', text: "Montre-moi les catalogues", navTo: 'catalog' },
+  ],
+  productSearch: [{ id: 'productSearch01', text: "Merci", navTo: 'home' }],
   whoAreYou: [{ id: 'whoAreYou01', text: "Merci pour l'info ...", navTo: 'home' }],
   bored: [
     { id: 'bored02', text: "Raconte-moi une blague", navTo: 'joke' },
@@ -44,8 +51,8 @@ export const USERANSWERS = {
     { id: 'bored04', text: "Non merci, ça ira ...", navTo: 'home' },
   ],
   joke: [
-    {id:'joke01', text:"Une autre !", navTo: 'joke'},
-    {id:'joke02', text:"Mouais ...", navTo: 'home'},
+    { id: 'joke01', text: "Une autre !", navTo: 'joke' },
+    { id: 'joke02', text: "Mouais ...", navTo: 'home' },
   ]
 
 }

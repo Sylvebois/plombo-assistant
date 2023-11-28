@@ -6,6 +6,7 @@ import Dictaphone from './components/Dictaphone'
 import ChoiceButtons from './components/ChoiceButtons'
 import Chat from './components/Chat'
 import PdfViewer from './components/PdfViewer'
+import SearchForm from './components/SearchForm'
 import { PlomboImg } from './components/PlomboImg'
 
 import sipService from './services/sip'
@@ -66,6 +67,11 @@ const App = () => {
           <Dictaphone currPage={currPage} voiceClick={navClick} />
         </div>
         <div style={divStyle}>
+          {
+            currPage === 'productSearch' ?
+            <SearchForm /> :
+            null
+          }
           <ChoiceButtons currPage={currPage} handleClick={navClick} />
         </div>
       </>
